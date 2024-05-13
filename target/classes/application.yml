@@ -1,0 +1,14 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: Congratulation
+  datasource:
+    url: jdbc:mysql://localhost:3306/reimburse?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
