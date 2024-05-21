@@ -1,0 +1,17 @@
+ACT_RU_EXECUTION: 存储流程实例及其执行的状态和位置。
+ACT_RU_TASK: 存储当前活动的任务。
+ACT_RU_VARIABLE: 存储当前活动流程实例的变量。
+ACT_HI_PROCINST: 存储已完成或正在进行的流程实例的历史数据。
+ACT_HI_TASKINST: 存储任务实例的历史数据。
+ACT_HI_VARINST: 存储变量的历史数据。
+ACT_RE_PROCDEF: 存储流程定义数据。
+ACT_RE_DEPLOYMENT: 存储部署数据
+
+当一个流程实例启动时，它的状态会被记录在 ACT_RU_EXECUTION 表中，并为每个活动的任务创建记录在 ACT_RU_TASK 表中。
+表中的记录包含了流程实例和任务的状态、当前的执行位置等。
+
+当你在启动流程时传递变量（如 formData），这些变量会存储在 ACT_RU_VARIABLE 表中。表中的记录包含变量的名称、类型、值、所属的流程实例或任务等。
+
+当流程实例或任务完成后，它们的相关记录会从 ACT_RU_* 表移到 ACT_HI_* 表中。例如，完成一个流程实例后，
+该实例的记录会从 ACT_RU_EXECUTION 表移到 ACT_HI_PROCINST 表。
+类似地，完成的任务记录会从 ACT_RU_TASK 表移到 ACT_HI_TASKINST 表，流程变量的记录会从 ACT_RU_VARIABLE 表移到 ACT_HI_VARINST 表。
